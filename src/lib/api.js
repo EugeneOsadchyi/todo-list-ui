@@ -28,8 +28,23 @@ class Api {
     });
   }
 
-  #request(path, { method, body }) {
-    const url = BASE_URL + path;
+  getTodos(filter) {
+    return this.#request('/todos', { method: 'GET', query: filter });
+  }
+
+  createTodo({ title }) {
+    return this.#request('/todos', {
+      method: 'POST',
+      body: { title },
+    });
+  }
+
+  deleteTodo({ id }) {
+    return this.#request(`/todos/${id}`, { method: 'DELETE' });
+  }
+
+  #request(path, { method, body, query }) {
+    let url = BASE_URL + path;
 
     const headers = {
       'Content-Type': 'application/json'
@@ -37,6 +52,14 @@ class Api {
 
     if (this.#accessToken) {
       headers.Authorization = this.#accessToken;
+    }
+
+    if (query) {
+      const queryStr = Object.keys(query)
+        .map(key => `${key}=${query[key]}`)
+        .join('&');
+
+      url += '?' + queryStr;
     }
 
     return fetch(

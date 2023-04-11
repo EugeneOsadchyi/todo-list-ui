@@ -1,0 +1,8 @@
+.Checkbox {
+  cursor: pointer;
+  display: inline-flex;
+}
+
+.Checkbox input {
+  margin-right: 14px;
+}

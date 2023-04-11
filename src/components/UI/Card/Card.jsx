@@ -9,7 +9,7 @@ export function Card({ children, ...props }) {
   );
 }
 
-function Header({ title = "Welcome back!", subtitle = "Log in to continue." }) {
+function Header({ title, subtitle }) {
   return (
     <header className="CardHeader">
       <img src={logo} className="logo" alt="logo" />

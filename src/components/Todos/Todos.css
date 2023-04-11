@@ -1,0 +1,46 @@
+.TodosList li {
+  line-height: 25px;
+  margin-bottom: 16px;
+}
+
+.TodosList button {
+  border: 0;
+  background: transparent;
+  display: none;
+  cursor: pointer;
+}
+
+.TodosList button img {
+  width: 10px;
+  height: 10px;
+}
+
+.TodosList li:hover button {
+  display: inline-block;
+}
+
+.Filter {
+  font-size: 14px;
+}
+
+.Filter span {
+  color: rgba(31, 42, 75, 0.59);
+  margin-right: 17px;
+}
+
+.Filter button {
+  padding: 0;
+  margin: 0 5px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.Filter button:not(.active) {
+  text-decoration: underline;
+  color: var(--primary);
+}
+
+.Filter button.active {
+  color: var(--font-color);
+}
