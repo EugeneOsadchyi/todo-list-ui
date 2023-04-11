@@ -1,33 +1,48 @@
-// import logo from './logo.svg';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import ProtectedRoute from './routes/components/ProtectedRoute';
+
+
 import './App.css';
-import SignIn from './pages/SignIn';
 
-function App() {
+import {
+  Login,
+  Logout,
+  Register,
+  Todos,
+  ErrorPage,
+} from './routes';
 
+
+import { Provider as SessionProvider } from './hooks/session';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: (
+      <ProtectedRoute>
+        <Todos />
+      </ProtectedRoute>
+    ),
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: 'login',
+    element: <Login />,
+  },
+  {
+    path: 'register',
+    element: <Register />,
+  },
+  {
+    path: 'logout',
+    element: <Logout />,
+  }
+]);
+
+export default function App() {
   return (
-    <div className="App">
-      <SignIn />
-    </div>
-
+    <SessionProvider>
+      <RouterProvider router={router} />
+    </SessionProvider>
   );
-  // return (
-  //   <div className="App">
-  //     <header className="App-header">
-  //       <img src={logo} className="App-logo" alt="logo" />
-  //       <p>
-  //         Edit <code>src/App.js</code> and save to reload.
-  //       </p>
-  //       <a
-  //         className="App-link"
-  //         href="https://reactjs.org"
-  //         target="_blank"
-  //         rel="noopener noreferrer"
-  //       >
-  //         Learn React
-  //       </a>
-  //     </header>
-  //   </div>
-  // );
-}
-
-export default App;
+};

@@ -1,4 +1,4 @@
-import Card from '../components/Card/Card';
+import Card from '../components/UI/Card/Card';
 
 export default function CardLayout({ title, subtitle, children }) {
   return (
