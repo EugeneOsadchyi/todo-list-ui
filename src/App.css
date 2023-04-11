@@ -1,7 +1,31 @@
-.App {
-  text-align: center;
+:root {
+  --font-size: 16px;
+  --title-font-size: 22px;
+  --link-font-size: 14px;
+
+  --font-color: #1f2a4b;
+  --subtitle-color: #a1a4ad;
+  --primary: #4a77e5;
+  --border-color: #e1e1e1;
+  --link-color: #1f2a4b;
+  --white: #ffffff;
 }
 
+.App {
+  font-size: var(--font-size);
+  color: var(--font-color);
+}
+
+a {
+  color: var(--link-color);
+  font-size: var(--link-font-size);
+}
+
+input, button {
+  font-size: var(--font-size);
+}
+
+/*
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -35,4 +59,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
