@@ -1,11 +1,11 @@
 import Checkbox from "../UI/Checkbox/Checkbox";
 import deleteIcon from "./deleteIcon.svg";
 
-export default function ListItem({ todo, checkTodoToggled, deleteTodoHandler }) {
+export default function ListItem({ todo, onCheck, onDelete }) {
   return (
-    <li style={{ display: 'flex', justifyContent: 'space-between' }}>
-      <Checkbox label={todo.title} onClick={() => checkTodoToggled(todo.id)} />
-      <DeleteButton onClick={() => deleteTodoHandler(todo.id) } />
+    <li>
+      <Checkbox label={todo.title} value={todo.completed} onClick={() => onCheck(todo.id)} />
+      <DeleteButton onClick={() => onDelete(todo.id) } />
     </li>
   );
 };

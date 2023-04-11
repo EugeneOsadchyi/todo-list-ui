@@ -1,4 +1,6 @@
 .TodosList li {
+  display: flex;
+  justify-content: space-between;
   line-height: 25px;
   margin-bottom: 16px;
 }

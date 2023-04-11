@@ -39,7 +39,19 @@ class Api {
     });
   }
 
-  deleteTodo({ id }) {
+  markTodoCompleted(id) {
+    return this.#request(`/todos/${id}/markTodoCompleted`, {
+      method: 'PUT',
+    });
+  }
+
+  markTodoUncompleted(id) {
+    return this.#request(`/todos/${id}/markTodoUncompleted`, {
+      method: 'PUT',
+    });
+  }
+
+  deleteTodo(id) {
     return this.#request(`/todos/${id}`, { method: 'DELETE' });
   }
 

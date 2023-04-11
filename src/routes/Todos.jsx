@@ -27,19 +27,32 @@ export default function SignIn() {
       })
   );
 
+  const onToggleTodo = (id) => {
+    const todo = todos.find((todo) => todo.id === id);
+
+    const promise = todo.completed ? api.markTodoUncompleted(id) : api.markTodoCompleted(id);
+
+    promise.then((updatedTodo) => {
+      setTodos((todos) => todos.map((todo) => {
+        if (todo.id === id) {
+          return updatedTodo;
+        }
+        return todo;
+      }));
+    });
+  };
+
   const onRemoveTodo = (id) => (
-    api.deleteTodoById(id)
+    api.deleteTodo(id)
       .then(() => {
         setTodos((todos) => todos.filter((todo) => todo.id !== id));
       })
   );
 
   return (
-    <CardLayout
-      title="Todo List"
-    >
+    <CardLayout title="Todo List" >
       <AddTodo onAdd={onAddTodo} />
-      <TodosList todos={todos} onRemoveTodo={onRemoveTodo} />
+      <TodosList todos={todos} onCheck={onToggleTodo} onRemove={onRemoveTodo} />
 
       <Filter state={filter} setState={setFilter} />
     </CardLayout>
