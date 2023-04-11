@@ -30,6 +30,7 @@ export default function LoginForm({ onSubmit }) {
         value={formData.email}
         onChange={handleChange}
         placeholder="Email"
+        required
       />
 
       <Input
@@ -38,6 +39,7 @@ export default function LoginForm({ onSubmit }) {
         value={formData.password}
         onChange={handleChange}
         placeholder="Password"
+        required
       />
 
       <Link to="/register">Don't have an account? Sign up.</Link>

@@ -31,7 +31,7 @@ export default function useSession() {
 };
 
 export async function login({ email, password }) {
-  const response = await api.login(email, password);
+  const response = await api.login({ email, password });
 
   if (response.token) {
     const session = {

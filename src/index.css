@@ -19,3 +19,9 @@ body {
 body, button, input {
   font-family: var(--font-family);
 }
+
+ul, li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}

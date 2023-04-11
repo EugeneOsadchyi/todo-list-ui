@@ -26,10 +26,10 @@ export default function RegisterForm({ onSubmit }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <Input type="text" name="name" onChange={handleChange} placeholder="Full Name" />
-      <Input type="text" name="email" onChange={handleChange} placeholder="Email" />
-      <Input type="password" name="password" onChange={handleChange} placeholder="Password" />
-      <Input type="password" name="passwordConfirmation" onChange={handleChange} placeholder="Password Confirmation" />
+      <Input type="text" name="name" onChange={handleChange} placeholder="Full Name" required />
+      <Input type="text" name="email" onChange={handleChange} placeholder="Email" required />
+      <Input type="password" name="password" onChange={handleChange} placeholder="Password" required />
+      <Input type="password" name="passwordConfirmation" onChange={handleChange} placeholder="Password Confirmation" required />
 
       <Link to="/login">Do have an account? Sign in.</Link>
 

@@ -1,6 +1,6 @@
 import { logout } from '../hooks/session';
 
-const BASE_URL = process.env.REACT_APP_BASE_URL || 'http://localhost:3000';
+const BASE_URL = process.env.REACT_APP_BASE_URL || 'http://localhost:4000';
 
 class Api {
   #accessToken
@@ -9,17 +9,22 @@ class Api {
     this.#accessToken = accessToken;
   }
 
-  login(username, password) {
+  login({ email, password }) {
     return this.#request('/auth/login', {
       method: 'POST',
-      body: { username, password }
+      body: { email, password }
     });
   }
 
-  register(email, password) {
+  register({ name, email, password, passwordConfirmation }) {
     return this.#request('/auth/register', {
       method: 'POST',
-      body: { email, password }
+      body: {
+        name,
+        email,
+        password,
+        passwordConfirmation
+      }
     });
   }
 

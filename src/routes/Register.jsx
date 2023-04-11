@@ -16,7 +16,7 @@ export default function Register() {
       .then(() => navigate('/login'))
       .catch((error) => {
         console.error(error);
-        alert(error);
+        alert(error.error);
       });
   };
 

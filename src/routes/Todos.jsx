@@ -1,14 +1,18 @@
 import CardLayout from "../layout/Card";
-import Input from "../components/UI/Input";
+import TodosList from "../components/Todos/List";
+import AddTodo from "../components/Todos/AddTodo";
 
 export default function SignIn() {
+  const todos = [
+    { id: 1, title: "Todo 1" },
+  ];
+
   return (
     <CardLayout
       title="Todo List"
     >
-      <form>
-        <Input type="text" name="title" placeholder="Add a new todo" />
-      </form>
+      <AddTodo />
+      <TodosList todos={todos} />
     </CardLayout>
   )
 }

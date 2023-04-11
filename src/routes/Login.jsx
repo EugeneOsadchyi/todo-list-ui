@@ -12,12 +12,12 @@ export default function Login() {
     return <Navigate to="/" replace />;
   }
 
-  const onSubmit = async (formData) => {
+  const onSubmit = (formData) => {
     login(formData)
       .then(() => navigate('/'))
       .catch((error) => {
         console.error(error);
-        alert(error);
+        alert(error.error);
       });
   };
 
