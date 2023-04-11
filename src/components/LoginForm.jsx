@@ -17,8 +17,13 @@ export default function LoginForm({ onSubmit }) {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    onSubmit(formData);
+  };
+
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={handleSubmit}>
       <Input
         type="text"
         name="email"
