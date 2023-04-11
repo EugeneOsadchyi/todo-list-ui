@@ -10,7 +10,7 @@ export default function SignIn() {
   const [filter, setFilter] = useState('all');
 
   useEffect(() => {
-    api.getTodos(filter)
+    api.getTodos({ filter })
       .then((todos) => {
         setTodos(todos);
       })
