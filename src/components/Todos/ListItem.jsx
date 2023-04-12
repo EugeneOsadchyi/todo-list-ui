@@ -4,7 +4,7 @@ import deleteIcon from "./deleteIcon.svg";
 export default function ListItem({ todo, onCheck, onDelete }) {
   return (
     <li>
-      <Checkbox label={todo.title} value={todo.completed} onClick={() => onCheck(todo.id)} />
+      <Checkbox label={todo.title} checked={todo.completed} onChange={() => onCheck(todo.id)} />
       <DeleteButton onClick={() => onDelete(todo.id) } />
     </li>
   );

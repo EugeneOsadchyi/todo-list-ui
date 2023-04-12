@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import CardLayout from "../layout/Card";
 import TodosList from "../components/Todos/List";
 import AddTodo from "../components/Todos/AddTodo";
@@ -9,7 +9,7 @@ export default function SignIn() {
   const [todos, setTodos] = useState([]);
   const [filter, setFilter] = useState('all');
 
-  useEffect(() => {
+  const getTodos = useCallback(() => {
     api.getTodos({ filter })
       .then((todos) => {
         setTodos(todos);
@@ -17,8 +17,7 @@ export default function SignIn() {
       .catch((error) => {
         console.error(error);
       });
-    }, [filter]
-  )
+  }, [filter]);
 
   const onAddTodo = (title) => (
     api.createTodo({ title })
@@ -32,14 +31,7 @@ export default function SignIn() {
 
     const promise = todo.completed ? api.markTodoUncompleted(id) : api.markTodoCompleted(id);
 
-    promise.then((updatedTodo) => {
-      setTodos((todos) => todos.map((todo) => {
-        if (todo.id === id) {
-          return updatedTodo;
-        }
-        return todo;
-      }));
-    });
+    promise.then(getTodos);
   };
 
   const onRemoveTodo = (id) => (
@@ -47,6 +39,11 @@ export default function SignIn() {
       .then(() => {
         setTodos((todos) => todos.filter((todo) => todo.id !== id));
       })
+  );
+
+  useEffect(
+    () => { getTodos(filter); },
+    [getTodos, filter]
   );
 
   return (
