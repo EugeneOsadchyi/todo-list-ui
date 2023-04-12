@@ -1,5 +1,5 @@
 import Checkbox from "../UI/Checkbox/Checkbox";
-import deleteIcon from "./deleteIcon.svg";
+import deleteIcon from "../../assets/images/delete.svg";
 
 export default function ListItem({ todo, onCheck, onDelete }) {
   return (

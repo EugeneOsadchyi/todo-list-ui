@@ -1,5 +1,5 @@
 import './Card.css';
-import logo from './logo.svg';
+import logo from '../../../assets/images/logo.svg';
 
 export function Card({ children, ...props }) {
   return (
