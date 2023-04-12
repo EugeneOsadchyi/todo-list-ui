@@ -1,4 +1,6 @@
 :root {
+  --font-family: 'MarkPro', sans-serif;
+
   --font-size: 16px;
   --title-font-size: 22px;
   --link-font-size: 14px;
@@ -9,9 +11,7 @@
   --border-color: #e1e1e1;
   --link-color: #1f2a4b;
   --white: #ffffff;
-
   --background-color: #f6f7f8;
-  --font-family: 'MarkPro', sans-serif;
 }
 
 @font-face {
@@ -37,11 +37,6 @@ ul, li {
   padding: 0;
 }
 
-.App {
-  font-size: var(--font-size);
-  color: var(--font-color);
-}
-
 a {
   color: var(--link-color);
   font-size: var(--link-font-size);
@@ -49,4 +44,9 @@ a {
 
 input, button {
   font-size: var(--font-size);
+}
+
+.App {
+  font-size: var(--font-size);
+  color: var(--font-color);
 }
