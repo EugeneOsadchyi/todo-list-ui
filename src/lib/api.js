@@ -10,14 +10,14 @@ class Api {
   }
 
   login({ email, password }) {
-    return this.#request('/auth/login', {
+    return this.#request('/api/auth/login', {
       method: 'POST',
       body: { email, password }
     });
   }
 
   register({ name, email, password, passwordConfirmation }) {
-    return this.#request('/auth/register', {
+    return this.#request('/api/auth/register', {
       method: 'POST',
       body: {
         name,
@@ -29,7 +29,7 @@ class Api {
   }
 
   getTodos(filter) {
-    return this.#request('/todos', { method: 'GET', query: filter });
+    return this.#request('/api/todos', { method: 'GET', query: filter });
   }
 
   createTodo({ title }) {
@@ -40,19 +40,19 @@ class Api {
   }
 
   markTodoCompleted(id) {
-    return this.#request(`/todos/${id}/markTodoCompleted`, {
+    return this.#request(`/api/todos/${id}/markTodoCompleted`, {
       method: 'PUT',
     });
   }
 
   markTodoUncompleted(id) {
-    return this.#request(`/todos/${id}/markTodoUncompleted`, {
+    return this.#request(`/api/todos/${id}/markTodoUncompleted`, {
       method: 'PUT',
     });
   }
 
   deleteTodo(id) {
-    return this.#request(`/todos/${id}`, { method: 'DELETE' });
+    return this.#request(`/api/todos/${id}`, { method: 'DELETE' });
   }
 
   #request(path, { method, body, query }) {
