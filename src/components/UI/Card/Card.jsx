@@ -1,5 +1,4 @@
 import './Card.css';
-import logo from '../../../assets/images/logo.svg';
 
 export function Card({ children, ...props }) {
   return (
@@ -9,13 +8,10 @@ export function Card({ children, ...props }) {
   );
 }
 
-function Header({ title, subtitle }) {
+function Header({ children }) {
   return (
     <header className="CardHeader">
-      <img src={logo} className="logo" alt="logo" />
-
-      {title && <h1 className="title">{title}</h1>}
-      {subtitle && <p className="subtitle">{subtitle}</p>}
+      {children}
     </header>
   );
 }

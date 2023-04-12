@@ -16,21 +16,6 @@
   margin-bottom: 25px;
 }
 
-.Card .logo {
-  margin-bottom: 25px;
-}
-
-.Card .title {
-  font-size: var(--title-font-size);
-  font-weight: bold;
-  margin: 0;
-}
-
-.Card .subtitle {
-  color: var(--subtitle-color);
-  margin: 0;
-  margin-top: 6px;
-}
 
 
 

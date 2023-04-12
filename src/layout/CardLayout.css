@@ -1,0 +1,15 @@
+.CardHeader .logo {
+  margin-bottom: 25px;
+}
+
+.CardHeader .title {
+  font-size: var(--title-font-size);
+  font-weight: bold;
+  margin: 0;
+}
+
+.CardHeader .subtitle {
+  color: var(--subtitle-color);
+  margin: 0;
+  margin-top: 6px;
+}
