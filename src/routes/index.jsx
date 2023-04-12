@@ -1,5 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom';
-import ProtectedRoute from './components/ProtectedRoute';
+import RequireAuth from './components/RequireAuth';
 
 import LoginPage from '../pages/LoginPage';
 import LogoutPage from '../pages/LogoutPage';
@@ -10,7 +10,7 @@ import ErrorPage from '../pages/ErrorPage';
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <ProtectedRoute />,
+    element: <RequireAuth />,
     children: [
       { index: true, element: <TodoListPage /> },
       { path: '/logout', element: <LogoutPage /> }

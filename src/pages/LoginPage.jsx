@@ -1,15 +1,17 @@
-import { Navigate, useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate, useLocation } from 'react-router-dom';
 
-import CardLayout from "../layout/Card";
+import CardLayout from "../layout/CardLayout";
 import LoginForm from "../components/LoginForm";
 import useSession, { login } from '../hooks/session';
 
 export default function Login() {
   const navigate = useNavigate();
+  const location = useLocation();
   const session = useSession();
 
   if (session) {
-    return <Navigate to="/" replace />;
+    const from = location.state?.from?.pathname || "/";
+    return <Navigate to={from} replace />;
   }
 
   const onSubmit = (formData) => {

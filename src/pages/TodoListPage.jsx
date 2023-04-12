@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import CardLayout from "../layout/Card";
+import CardLayout from "../layout/CardLayout";
 import TodosList from "../components/Todos/List";
 import AddTodo from "../components/Todos/AddTodo";
 import Filter from "../components/Todos/Filter";

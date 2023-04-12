@@ -1,5 +1,5 @@
 import { useNavigate, Navigate } from "react-router-dom";
-import CardLayout from "../layout/Card";
+import CardLayout from "../layout/CardLayout";
 import RegisterForm from "../components/RegisterForm";
 import api from "../lib/api";
 import useSession from '../hooks/session';
