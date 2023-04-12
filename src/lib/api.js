@@ -33,7 +33,7 @@ class Api {
   }
 
   createTodo({ title }) {
-    return this.#request('/todos', {
+    return this.#request('/api/todos', {
       method: 'POST',
       body: { title },
     });
