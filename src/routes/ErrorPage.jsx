@@ -1,16 +1,14 @@
 import { useRouteError } from "react-router-dom";
+import CardLayout from "../layout/Card";
 
 export default function ErrorPage() {
   const error = useRouteError();
-  console.error(error);
 
   return (
-    <div>
-      <h1>Ooops...</h1>
-
+    <CardLayout title="Ooops...">
       <p>
-        <i>{error.statusText || error.message}</i>
+        <i>{error.statusText}</i>
       </p>
-    </div>
+    </CardLayout>
   );
 }

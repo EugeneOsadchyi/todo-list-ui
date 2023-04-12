@@ -16,6 +16,7 @@ export default function SignIn() {
       })
       .catch((error) => {
         console.error(error);
+        alert(error.message);
       });
   }, [filter]);
 
@@ -31,7 +32,12 @@ export default function SignIn() {
 
     const promise = todo.completed ? api.markTodoUncompleted(id) : api.markTodoCompleted(id);
 
-    promise.then(getTodos);
+    promise
+      .then(getTodos)
+      .catch((error) => {
+        console.error(error);
+        alert(error.message);
+      });
   };
 
   const onRemoveTodo = (id) => (
