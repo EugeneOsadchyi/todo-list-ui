@@ -4,12 +4,16 @@ import TodosList from "../components/Todos/List";
 import AddTodo from "../components/Todos/AddTodo";
 import Filter from "../components/Todos/Filter";
 import api from "../lib/api";
+import Loader from "../components/UI/Loader/Loader";
 
 export default function SignIn() {
   const [todos, setTodos] = useState([]);
   const [filter, setFilter] = useState('all');
+  const [loading, setLoading] = useState(false);
 
   const getTodos = useCallback(() => {
+    setLoading(true);
+
     api.getTodos({ filter })
       .then((todos) => {
         setTodos(todos);
@@ -17,6 +21,9 @@ export default function SignIn() {
       .catch((error) => {
         console.error(error);
         alert(error.message);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   }, [filter]);
 
@@ -55,7 +62,9 @@ export default function SignIn() {
   return (
     <CardLayout title="Todo List" >
       <AddTodo onAdd={onAddTodo} />
-      <TodosList todos={todos} onCheck={onToggleTodo} onRemove={onRemoveTodo} />
+
+      {loading && <Loader />}
+      {!loading && <TodosList todos={todos} onCheck={onToggleTodo} onRemove={onRemoveTodo} />}
 
       <Filter state={filter} setState={setFilter} />
     </CardLayout>
