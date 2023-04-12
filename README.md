@@ -19,3 +19,8 @@
     ```sh
     npm start
     ```
+
+## TODOs
+- [] Review and refactor components
+- [] Think of the better way to filter items (maybe stop doing filtering on the backend)
+- [] Maybe save the value of the filter somewhere in the `localstorage` to make it persistent
