@@ -1,5 +1,8 @@
 # Todo List Application (frontend)
 
+## Demo
+https://todo.moneys-club.pp.ua
+
 ## Application consists of
 - [Backend NodeJS application](https://github.com/EugeneOsadchyi/todo-list-backend)
 - [Frontend React application (this repository)](https://github.com/EugeneOsadchyi/todo-list-ui)
@@ -24,4 +27,4 @@
 - [ ] Review and refactor components
 - [ ] Think of the better way to filter items (maybe stop doing filtering on the backend)
 - [ ] Maybe save the value of the filter somewhere in the `localstorage` to make it persistent
-- [ ] Make it running at https://todo.moneys-club.pp.ua
+- [x] Make it running at https://todo.moneys-club.pp.ua
